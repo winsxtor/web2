@@ -1,28 +1,27 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base */
 html, body {
   width: 100%;
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
   background: #000;
   color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
   overflow: hidden;
 }
 
-/* Video background */
+/* Video */
 .bg-video {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -2;
+  z-index: -3;
+  pointer-events: none; /* evita interacción */
 }
 
 /* Overlay */
@@ -30,14 +29,46 @@ html, body {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  z-index: -1;
+  z-index: -2;
 }
 
-/* Floating buttons */
+/* Logo */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.logo img {
+  height: 48px;
+}
+
+/* Socials */
+.socials {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.socials a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  border: 1px solid rgba(255,255,255,0.4);
+  padding: 6px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
+/* Buttons */
 .floating-buttons {
   position: fixed;
-  bottom: 32px;
-  left: 0;
+  bottom: 30px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -54,7 +85,7 @@ html, body {
   border-radius: 999px;
   font-size: 14px;
   cursor: pointer;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
 /* Panels */
@@ -87,11 +118,11 @@ html, body {
   list-style: none;
 }
 
-.panel ul li {
+.panel li {
   margin-bottom: 10px;
 }
 
-/* Close button */
+/* Close */
 .close {
   position: absolute;
   top: 20px;
@@ -105,10 +136,24 @@ html, body {
 
 /* Mobile */
 @media (max-width: 768px) {
+  .logo img {
+    height: 40px;
+  }
+
+  .socials {
+    top: 14px;
+    right: 14px;
+    gap: 8px;
+  }
+
+  .socials a {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
   .floating-buttons {
     bottom: 20px;
     flex-wrap: wrap;
-    gap: 12px;
   }
 
   .floating-buttons button {
@@ -118,9 +163,5 @@ html, body {
 
   .panel {
     padding: 40px 24px;
-  }
-
-  .panel h2 {
-    font-size: 24px;
   }
 }
