@@ -13,7 +13,7 @@ html, body {
   color: #fff;
 }
 
-/* VIDEO BACKGROUND */
+/* VIDEO */
 .video-container {
   position: fixed;
   inset: 0;
@@ -26,43 +26,40 @@ html, body {
   object-fit: cover;
 }
 
-/* OVERLAY REAL */
+/* OVERLAY */
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 2;
-  pointer-events: none;
+  z-index: 10;
 }
 
 /* LOGO */
 .logo {
   position: absolute;
-  top: 4vh;
+  top: env(safe-area-inset-top, 4vh);
   left: 50%;
   transform: translateX(-50%);
-  pointer-events: auto;
 }
 
 .logo img {
-  width: clamp(80px, 15vw, 140px);
+  width: clamp(90px, 14vw, 160px);
   height: auto;
 }
 
 /* SOCIALS */
 .socials {
   position: absolute;
-  top: 4vh;
+  top: env(safe-area-inset-top, 4vh);
   right: 4vw;
   display: flex;
   gap: 14px;
-  pointer-events: auto;
 }
 
 .socials a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   font-size: 14px;
-  opacity: 0.85;
+  opacity: 0.8;
 }
 
 .socials a:hover {
@@ -72,12 +69,11 @@ html, body {
 /* BUTTONS */
 .buttons {
   position: absolute;
-  bottom: 6vh;
+  bottom: env(safe-area-inset-bottom, 6vh);
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 16px;
-  pointer-events: auto;
 }
 
 .buttons button {
@@ -95,7 +91,7 @@ html, body {
   color: #000;
 }
 
-/* INFO PANELS */
+/* PANELS */
 .panel {
   position: absolute;
   bottom: 14vh;
@@ -103,10 +99,9 @@ html, body {
   text-align: center;
   display: none;
   font-size: clamp(14px, 3vw, 18px);
-  pointer-events: none;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media (max-width: 768px) {
   .buttons {
     flex-direction: column;
