@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DJ Portfolio</title>
 
-  <!-- SEO básico -->
-  <meta name="description" content="DJ portfolio – video recap, trayectoria, eventos y contacto." />
+  <meta name="description" content="DJ portfolio – trayectoria, eventos y contacto." />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
-
 </head>
 <body>
 
@@ -21,14 +18,28 @@
     muted
     loop
     playsinline
+    disablepictureinpicture
+    controlslist="nodownload nofullscreen noremoteplayback"
     poster="assets/poster.jpg"
   >
     <source src="assets/recap.mp4" type="video/mp4" />
-    Tu navegador no soporta video HTML5.
   </video>
 
   <!-- Overlay -->
   <div class="overlay"></div>
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="assets/logo.svg" alt="DJ Logo">
+  </div>
+
+  <!-- Social links -->
+  <div class="socials">
+    <a href="https://instagram.com/TUUSUARIO" target="_blank">IG</a>
+    <a href="https://soundcloud.com/TUUSUARIO" target="_blank">SC</a>
+    <a href="https://tiktok.com/@TUUSUARIO" target="_blank">TT</a>
+    <a href="https://facebook.com/TUUSUARIO" target="_blank">FB</a>
+  </div>
 
   <!-- Floating buttons -->
   <nav class="floating-buttons">
@@ -42,8 +53,8 @@
     <button class="close">✕</button>
     <h2>Trayectoria</h2>
     <p>
-      DJ y productor con presencia en eventos underground y escenarios urbanos.
-      Sonido enfocado en club culture, beats y fusiones latinas.
+      DJ y productor con enfoque en cultura club, beats urbanos y experiencias
+      inmersivas.
     </p>
   </section>
 
@@ -63,7 +74,6 @@
     <a href="mailto:booking@tudj.com">booking@tudj.com</a>
   </section>
 
-  <!-- Script -->
   <script src="script.js" defer></script>
 </body>
 </html>
