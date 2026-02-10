@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="recap.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <div class="floating-buttons">
+    <button data-panel="bio">Trayectoria</button>
+    <button data-panel="events">Eventos</button>
+    <button data-panel="contact">Contacto</button>
+  </div>
+
+  <div class="panel" id="bio">
+    <span class="close">✕</span>
+    <h2>Trayectoria</h2>
+    <p>
+      DJ y productor con presencia en eventos underground y festivales.
+      Sonido urbano, house y fusiones latinas.
+    </p>
+  </div>
+
+  <div class="panel" id="events">
+    <span class="close">✕</span>
+    <h2>Próximos eventos</h2>
+    <ul>
+      <li>16 Abr – Wins and Friends – Santa Marta</li>
+      <li>30 May – Club X – Bogotá</li>
+    </ul>
+  </div>
+
+  <div class="panel" id="contact">
+    <span class="close">✕</span>
+    <h2>Contacto</h2>
+    <p>Bookings & collabs</p>
+    <a href="mailto:booking@tudj.com">booking@tudj.com</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
 
