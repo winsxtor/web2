@@ -111,4 +111,14 @@ html, body {
   .socials {
     right: 3vw;
   }
+.buttons button {
+  /* ... tu código anterior ... */
+  transition: all 0.3s ease; /* Añade esto para suavizar el hover */
+}
+
+.panel {
+  /* ... tu código anterior ... */
+  transition: opacity 0.5s ease; /* Ayuda si decides usar opacidad en lugar de display */
+  padding: 0 20px; /* Evita que el texto toque los bordes en móviles */
+}
 }
