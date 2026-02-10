@@ -3,19 +3,21 @@ const panels = document.querySelectorAll('.panel');
 
 buttons.forEach(btn => {
   btn.addEventListener('click', () => {
-    const targetId = btn.dataset.panel;
-    const targetPanel = document.getElementById(targetId);
+    const targetPanel = document.getElementById(btn.dataset.panel);
 
-    // Si el panel ya está visible, lo ocultamos y salimos
-    if (targetPanel.style.display === 'block') {
-      targetPanel.style.display = 'none';
-      return; 
+    panels.forEach(p => {
+      if (p !== targetPanel) {
+        p.classList.remove('show');
+        p.style.display = 'none';
+      }
+    });
+
+    if (targetPanel.classList.contains('show')) {
+      targetPanel.classList.remove('show');
+      setTimeout(() => targetPanel.style.display = 'none', 300);
+    } else {
+      targetPanel.style.display = 'block';
+      requestAnimationFrame(() => targetPanel.classList.add('show'));
     }
-
-    // Ocultar todos los demás antes de mostrar el nuevo
-    panels.forEach(p => p.style.display = 'none');
-
-    // Mostrar el panel seleccionado
-    if (targetPanel) targetPanel.style.display = 'block';
   });
 });
