@@ -4,19 +4,17 @@ const closeButtons = document.querySelectorAll('.close');
 
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    const target = button.getAttribute('data-panel');
+    const target = button.dataset.panel;
 
     panels.forEach(panel => panel.classList.remove('active'));
 
-    const activePanel = document.getElementById(target);
-    if (activePanel) {
-      activePanel.classList.add('active');
-    }
+    const panel = document.getElementById(target);
+    if (panel) panel.classList.add('active');
   });
 });
 
-closeButtons.forEach(close => {
-  close.addEventListener('click', () => {
+closeButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
     panels.forEach(panel => panel.classList.remove('active'));
   });
 });
