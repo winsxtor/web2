@@ -1,0 +1,10 @@
+xdj-website/
+│
+├── index.html
+├── styles.css
+├── script.js
+├── assets/
+│   ├── recap.mp4
+│   ├── poster.jpg
+│   └── logo.svg
+└── README.md
