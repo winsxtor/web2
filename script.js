@@ -1,17 +1,22 @@
 const buttons = document.querySelectorAll('.floating-buttons button');
 const panels = document.querySelectorAll('.panel');
-const closes = document.querySelectorAll('.close');
+const closeButtons = document.querySelectorAll('.close');
 
-buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    panels.forEach(p => p.classList.remove('active'));
-    document.getElementById(btn.dataset.panel).classList.add('active');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const target = button.getAttribute('data-panel');
+
+    panels.forEach(panel => panel.classList.remove('active'));
+
+    const activePanel = document.getElementById(target);
+    if (activePanel) {
+      activePanel.classList.add('active');
+    }
   });
 });
 
-closes.forEach(c => {
-  c.addEventListener('click', () => {
-    panels.forEach(p => p.classList.remove('active'));
+closeButtons.forEach(close => {
+  close.addEventListener('click', () => {
+    panels.forEach(panel => panel.classList.remove('active'));
   });
 });
-
