@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DJ Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+
+  <!-- SEO básico -->
+  <meta name="description" content="DJ portfolio – video recap, trayectoria, eventos y contacto." />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
 </head>
 <body>
 
-  <video autoplay muted loop playsinline class="bg-video">
-    <source src="recap.mp4" type="video/mp4">
+  <!-- Video background -->
+  <video
+    class="bg-video"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="assets/poster.jpg"
+  >
+    <source src="assets/recap.mp4" type="video/mp4" />
+    Tu navegador no soporta video HTML5.
   </video>
 
+  <!-- Overlay -->
   <div class="overlay"></div>
 
-  <div class="floating-buttons">
+  <!-- Floating buttons -->
+  <nav class="floating-buttons">
     <button data-panel="bio">Trayectoria</button>
     <button data-panel="events">Eventos</button>
     <button data-panel="contact">Contacto</button>
-  </div>
+  </nav>
 
-  <div class="panel" id="bio">
-    <span class="close">✕</span>
+  <!-- Panels -->
+  <section class="panel" id="bio">
+    <button class="close">✕</button>
     <h2>Trayectoria</h2>
     <p>
-      DJ y productor con presencia en eventos underground y festivales.
-      Sonido urbano, house y fusiones latinas.
+      DJ y productor con presencia en eventos underground y escenarios urbanos.
+      Sonido enfocado en club culture, beats y fusiones latinas.
     </p>
-  </div>
+  </section>
 
-  <div class="panel" id="events">
-    <span class="close">✕</span>
+  <section class="panel" id="events">
+    <button class="close">✕</button>
     <h2>Próximos eventos</h2>
     <ul>
       <li>16 Abr – Wins and Friends – Santa Marta</li>
       <li>30 May – Club X – Bogotá</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="panel" id="contact">
-    <span class="close">✕</span>
+  <section class="panel" id="contact">
+    <button class="close">✕</button>
     <h2>Contacto</h2>
     <p>Bookings & collabs</p>
     <a href="mailto:booking@tudj.com">booking@tudj.com</a>
-  </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- Script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
-
