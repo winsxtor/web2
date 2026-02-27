@@ -79,61 +79,83 @@ html, body {
   }
 }
 
-/* SOCIALS */
+/* FUENTE MODERNA (Opcional pero recomendada: añade esto al inicio de tu HTML en el head) */
+/* <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet"> */
+
+/* SOCIALS - Los moví un poco para que no choquen con el borde */
+.socials {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 20;
+}
+
 .socials a {
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(0,0,0,0.55);
-  border: 1px solid rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.1); /* Más transparente */
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  font-size: 16px;
-  text-decoration: none;
-  backdrop-filter: blur(6px);
-  transition: all 0.25s ease;
+  font-size: 18px;
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .socials a:hover {
   background: #fff;
   color: #000;
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
-/* BUTTONS */
+/* BUTTONS - Look Moderno */
 .buttons {
   position: absolute;
-  bottom: env(safe-area-inset-bottom, 6vh);
+  bottom: 8vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
+  padding: 0 20px;
+  flex-wrap: wrap; /* Para que no se amontonen en pantallas pequeñas */
 }
 
 .buttons button {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.02)
-  );
-  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
-  padding: 14px 26px;
-  font-size: 13px;
-  letter-spacing: 1px;
+  padding: 12px 24px;
+  font-size: 11px; /* Un poco más pequeño y elegante */
+  font-weight: 500;
+  letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  backdrop-filter: blur(8px);
+  border-radius: 50px; /* Bordes totalmente redondeados (pill shape) */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .buttons button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+  border-color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+}
+
+/* Estilo para el botón activo (cuando el panel está abierto) */
+.buttons button.active {
   background: #fff;
   color: #000;
-  box-shadow: 0 0 18px rgba(255,255,255,0.6);
-  transform: translateY(-2px);
 }
 
 /* PANELS */
