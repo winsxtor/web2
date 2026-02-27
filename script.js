@@ -20,4 +20,7 @@ buttons.forEach(btn => {
       requestAnimationFrame(() => targetPanel.classList.add('show'));
     }
   });
+  // Dentro de tu evento click, añade esto:
+buttons.forEach(b => b.classList.remove('active')); // Limpiar otros botones
+btn.classList.add('active'); // Resaltar el actual
 });
