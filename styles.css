@@ -34,19 +34,20 @@ html, body {
   background: rgba(0,0,0,0.3);
 }
 
-/* SOCIALS */
+/* SOCIALS - ACTUALIZADO PARA ESTAR ABAJO Y CENTRADO */
 .socials {
   position: absolute;
-  top: 25px;
-  right: 25px;
+  bottom: 30px; /* Distancia desde el borde inferior */
+  left: 50%;
+  transform: translateX(-50%); /* Centrado exacto horizontal */
   display: flex;
-  gap: 12px;
+  gap: 15px;
   z-index: 30;
 }
 
 .socials a {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,12 +57,14 @@ html, body {
   color: #fff;
   text-decoration: none;
   backdrop-filter: blur(5px);
+  -webkit-tap-highlight-color: transparent;
   transition: all 0.3s ease;
 }
 
 .socials a:hover {
   background: #fff;
   color: #000;
+  transform: translateY(-3px);
 }
 
 /* BUTTONS - ESCRITORIO (CENTRO TOTAL) */
@@ -163,8 +166,10 @@ html, body {
     white-space: normal; /* Permite que el texto se divida en dos líneas si es necesario */
   }
 
+ /* Socials en móvil (se mantienen centrados abajo) */
   .socials {
-    top: 20px;
-    right: 20px;
+    bottom: 40px; /* Un poco más arriba en móviles para evitar barras de navegación del sistema */
+    top: auto; 
+    right: auto;
   }
 }
