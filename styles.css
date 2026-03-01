@@ -139,18 +139,32 @@ html, body {
   cursor: pointer;
 }
 
-/* RESPONSIVE MÓVIL - BOTONES ABAJO */
+/* RESPONSIVE MÓVIL (Cuadrícula 2x2 como img_3833.jpg) */
 @media (max-width: 768px) {
   .buttons {
-    /* Mueve los botones al fondo en móvil */
-    top: auto !important;
-    bottom: 15vh !important;
-    transform: translateX(-50%) translateY(0) !important;
-    flex-direction: column;
-    align-items: center;
+    top: auto;
+    bottom: 12vh; /* Ajustado para estar un poco más abajo */
+    left: 0;
+    transform: none;
+    width: 100%;
+    display: grid; /* Cambiado de flex a grid */
+    grid-template-columns: 1fr 1fr; /* Crea las 2 columnas */
+    gap: 10px;
+    padding: 0 20px;
+    justify-items: center;
   }
   
   .buttons button {
-    width: 260px; /* Ancho fijo para que se vean uniformes en lista */
+    width: 100%; /* El botón ocupa su celda de la cuadrícula */
+    max-width: 170px;
+    height: 80px; /* Altura para que se vean más como cápsulas redondas */
+    font-size: 10px;
+    padding: 10px;
+    white-space: normal; /* Permite que el texto se divida en dos líneas si es necesario */
+  }
+
+  .socials {
+    top: 20px;
+    right: 20px;
   }
 }
