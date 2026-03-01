@@ -163,7 +163,7 @@ html, body {
 @media (max-width: 768px) {
   .buttons {
     top: auto;
-    bottom: 25vh;
+    bottom: 35vh;
     left: 0;
     transform: none;
     width: 100%;
