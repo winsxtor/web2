@@ -1,8 +1,9 @@
 const buttons = document.querySelectorAll('.buttons button');
 const panels = document.querySelectorAll('.panel');
 
-// Función para cerrar todos los paneles
+// 1. Función para cerrar todo
 const closeAll = () => {
+  buttons.forEach(b => b.classList.remove('active'));
   panels.forEach(p => {
     p.classList.remove('show');
     setTimeout(() => {
@@ -11,14 +12,14 @@ const closeAll = () => {
       }
     }, 300);
   });
-  buttons.forEach(b => b.classList.remove('active'));
 };
 
-// Lógica para los botones
+// 2. Evento para los botones (Abrir)
 buttons.forEach(btn => {
+  // Usamos 'click' pero con un stopPropagation reforzado
   btn.addEventListener('click', (e) => {
-    // ESTO ES CLAVE: Evita que el click se pase al fondo y lo cierre
-    e.stopPropagation(); 
+    e.preventDefault();
+    e.stopPropagation();
     
     const targetId = btn.getAttribute('data-panel');
     const targetPanel = document.getElementById(targetId);
@@ -32,21 +33,35 @@ buttons.forEach(btn => {
       
       setTimeout(() => {
         targetPanel.classList.add('show');
-      }, 10);
+      }, 20);
     }
   });
 });
 
-// Lógica de cierre (Solo si toca la X o el fondo oscuro, NO el contenido)
+// 3. Evento para CERRAR (Solo en la X y en el fondo negro)
 panels.forEach(panel => {
+  const panelContent = panel.querySelector('.panel-content');
+  const closeBtn = panel.querySelector('.close-button');
+
+  // Cerramos si toca el fondo negro (el panel mismo)
   panel.addEventListener('click', (e) => {
-    const panelContent = panel.querySelector('.panel-content');
-    const isCloseBtn = e.target.classList.contains('close-button');
-    
-    // Si el click NO fue dentro del cuadro de texto, o fue en la X, cerramos
-    if (!panelContent.contains(e.target) || isCloseBtn) {
+    if (e.target === panel) {
       closeAll();
     }
+  });
+
+  // Cerramos si toca la X
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      closeAll();
+    });
+  }
+
+  // IMPORTANTE: Evitamos que clics dentro del texto cierren el panel
+  panelContent.addEventListener('click', (e) => {
+    e.stopPropagation();
   });
 });
 
