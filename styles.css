@@ -1,3 +1,6 @@
+/* IMPORTACIÓN DE FUENTES */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@600&f[]=gambetta@500&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +12,9 @@ html, body {
   height: 100%;
   background: #000;
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  /* Fuente para párrafos y base del sitio */
+  font-family: 'Gambetta', serif;
+  font-weight: 500;
   color: #fff;
 }
 
@@ -34,12 +39,12 @@ html, body {
   background: rgba(0,0,0,0.3);
 }
 
-/* SOCIALS - ACTUALIZADO PARA ESTAR ABAJO Y CENTRADO */
+/* SOCIALS - ABAJO Y CENTRADO */
 .socials {
   position: absolute;
-  bottom: 30px; /* Distancia desde el borde inferior */
+  bottom: 30px;
   left: 50%;
-  transform: translateX(-50%); /* Centrado exacto horizontal */
+  transform: translateX(-50%);
   display: flex;
   gap: 15px;
   z-index: 30;
@@ -67,30 +72,28 @@ html, body {
   transform: translateY(-3px);
 }
 
-/* BUTTONS - ESCRITORIO (CENTRO TOTAL) */
+/* BUTTONS - ESCRITORIO */
 .buttons {
   position: absolute;
-  /* Estas 3 líneas centran exactamente en el medio de la pantalla */
-  top: 50% !important; 
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
   display: flex;
   justify-content: center;
   gap: 15px;
-  padding: 0 20px;
-  flex-wrap: wrap;
   z-index: 20;
 }
 
 .buttons button {
+  /* Títulos en botones: General Sans Semibold */
+  font-family: 'General Sans', sans-serif;
+  font-weight: 600;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
   padding: 12px 24px;
   font-size: 11px;
-  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
@@ -134,6 +137,20 @@ html, body {
   border-radius: 8px;
 }
 
+/* TÍTULOS DE PANELES - General Sans Semibold */
+.panel-content h2 {
+  font-family: 'General Sans', sans-serif;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* PÁRRAFOS DE PANELES - Gambetta Medium */
+.panel-content p {
+  font-family: 'Gambetta', serif;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
 .close-button {
   position: absolute;
   top: 15px;
@@ -142,33 +159,37 @@ html, body {
   cursor: pointer;
 }
 
-/* RESPONSIVE MÓVIL (Cuadrícula 2x2 como img_3833.jpg) */
+/* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
   .buttons {
     top: auto;
-    bottom: 12vh; /* Ajustado para estar un poco más abajo */
+    bottom: 25vh;
     left: 0;
     transform: none;
     width: 100%;
-    display: grid; /* Cambiado de flex a grid */
-    grid-template-columns: 1fr 1fr; /* Crea las 2 columnas */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     padding: 0 20px;
     justify-items: center;
   }
   
   .buttons button {
-    width: 100%; /* El botón ocupa su celda de la cuadrícula */
+    width: 100%;
     max-width: 170px;
-    height: 80px; /* Altura para que se vean más como cápsulas redondas */
+    height: 80px;
     font-size: 10px;
     padding: 10px;
-    white-space: normal; /* Permite que el texto se divida en dos líneas si es necesario */
+    white-space: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
- /* Socials en móvil (se mantienen centrados abajo) */
+  /* Socials en móvil (se mantienen centrados abajo) */
   .socials {
-    bottom: 40px; /* Un poco más arriba en móviles para evitar barras de navegación del sistema */
+    bottom: 40px; 
     top: auto; 
     right: auto;
   }
