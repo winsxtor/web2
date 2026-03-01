@@ -64,12 +64,14 @@ html, body {
   color: #000;
 }
 
-/* BUTTONS - CENTRADO MEDIO EN WEB */
+/* BUTTONS - ESCRITORIO (CENTRO TOTAL) */
 .buttons {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* Estas 3 líneas centran exactamente en el medio de la pantalla */
+  top: 50% !important; 
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  
   width: 100%;
   display: flex;
   justify-content: center;
@@ -98,7 +100,6 @@ html, body {
 .buttons button:hover, .buttons button.active {
   background: #fff;
   color: #000;
-  transform: scale(1.05);
 }
 
 /* PANELS */
@@ -138,22 +139,18 @@ html, body {
   cursor: pointer;
 }
 
-/* RESPONSIVE MÓVIL - MANTIENE POSICIÓN ORIGINAL ABAJO */
+/* RESPONSIVE MÓVIL - BOTONES ABAJO */
 @media (max-width: 768px) {
   .buttons {
-    top: auto;
-    bottom: 15vh;
-    transform: translateX(-50%);
+    /* Mueve los botones al fondo en móvil */
+    top: auto !important;
+    bottom: 15vh !important;
+    transform: translateX(-50%) translateY(0) !important;
     flex-direction: column;
     align-items: center;
   }
   
   .buttons button {
-    width: 250px;
-  }
-
-  .socials {
-    top: 20px;
-    right: 20px;
+    width: 260px; /* Ancho fijo para que se vean uniformes en lista */
   }
 }
