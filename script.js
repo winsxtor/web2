@@ -1,28 +1,37 @@
 const buttons = document.querySelectorAll('.buttons button');
 const panels = document.querySelectorAll('.panel');
 
+const closeAllPanels = () => {
+buttons.forEach(b => b.classList.remove('active'));
+panels.forEach(p => {
+p.classList.remove('show');
+setTimeout(() => {
+if (!p.classList.contains('show')) {
+p.style.display = 'none';
+}
+}, 400);
+});
+};
+
 buttons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const targetPanel = document.getElementById(btn.dataset.panel);
+btn.addEventListener('click', (e) => {
+e.stopPropagation();
+const targetPanel = document.getElementById(btn.dataset.panel);
 
-    // Toggle de la clase active en los botones
-    buttons.forEach(b => b.classList.remove('active'));
-    
-    panels.forEach(p => {
-      if (p !== targetPanel) {
-        p.classList.remove('show');
-        p.style.display = 'none';
-      }
-    });
+});
+});
 
-    if (targetPanel.classList.contains('show')) {
-      targetPanel.classList.remove('show');
-      btn.classList.remove('active');
-      setTimeout(() => targetPanel.style.display = 'none', 300);
-    } else {
-      targetPanel.style.display = 'block';
-      btn.classList.add('active');
-      requestAnimationFrame(() => targetPanel.classList.add('show'));
-    }
-  });
+panels.forEach(panel => {
+panel.addEventListener('click', (e) => {
+const closeBtn = panel.querySelector('.close-button');
+if (e.target === panel || e.target === closeBtn) {
+closeAllPanels();
+}
+});
+});
+
+document.addEventListener('keydown', (e) => {
+if (e.key === 'Escape') {
+closeAllPanels();
+}
 });
