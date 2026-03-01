@@ -1,33 +1,35 @@
 const buttons = document.querySelectorAll('.buttons button');
 const panels = document.querySelectorAll('.panel');
 
-// Función única para cerrar todo
+// Función para cerrar todos los paneles
 const closeAll = () => {
   panels.forEach(p => {
     p.classList.remove('show');
-    setTimeout(() => { p.style.display = 'none'; }, 300);
+    setTimeout(() => {
+      if (!p.classList.contains('show')) {
+        p.style.display = 'none';
+      }
+    }, 300);
   });
   buttons.forEach(b => b.classList.remove('active'));
 };
 
+// Lógica para los botones
 buttons.forEach(btn => {
   btn.addEventListener('click', (e) => {
-    e.stopPropagation();
+    // ESTO ES CLAVE: Evita que el click se pase al fondo y lo cierre
+    e.stopPropagation(); 
+    
     const targetId = btn.getAttribute('data-panel');
     const targetPanel = document.getElementById(targetId);
 
-    // Si ya está abierto este panel, lo cerramos
     if (targetPanel.classList.contains('show')) {
       closeAll();
     } else {
-      // Cerramos cualquier otro abierto antes
       closeAll();
-
-      // Mostramos el nuevo
       targetPanel.style.display = 'flex';
       btn.classList.add('active');
       
-      // Forzamos el reflow para que la animación funcione
       setTimeout(() => {
         targetPanel.classList.add('show');
       }, 10);
@@ -35,13 +37,14 @@ buttons.forEach(btn => {
   });
 });
 
-// Cerrar al hacer clic en la X o fuera del contenido
-window.addEventListener('click', (e) => {
-  panels.forEach(p => {
-    const isClickInside = p.querySelector('.panel-content').contains(e.target);
+// Lógica de cierre (Solo si toca la X o el fondo oscuro, NO el contenido)
+panels.forEach(panel => {
+  panel.addEventListener('click', (e) => {
+    const panelContent = panel.querySelector('.panel-content');
     const isCloseBtn = e.target.classList.contains('close-button');
-
-    if (p.classList.contains('show') && (!isClickInside || isCloseBtn)) {
+    
+    // Si el click NO fue dentro del cuadro de texto, o fue en la X, cerramos
+    if (!panelContent.contains(e.target) || isCloseBtn) {
       closeAll();
     }
   });
