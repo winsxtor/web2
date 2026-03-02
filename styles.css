@@ -167,10 +167,7 @@ footer {
   text-align: center;
   padding: 20px 0;
   width: 100%;
-}
 
-.video-container {
-  z-index: -1; /* El video siempre al fondo */
 }
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
