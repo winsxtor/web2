@@ -245,3 +245,57 @@ html, body {
     flex-direction: column;
   }
 }
+/* FOOTER TRASLÚCIDO */
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 40; /* Por encima del overlay y sociales */
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.05); /* Igual que los botones */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'General Sans', sans-serif; /* Consistente con los botones */
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 0.7;
+}
+
+/* Ajuste para móviles: subimos un poco las redes sociales para que no se pisen con el footer */
+@media (max-width: 768px) {
+    .socials {
+        bottom: 100px; /* Subimos los iconos de redes */
+    }
+    
+    .site-footer {
+        padding: 20px 10px;
+        font-size: 8px;
+    }
+}
