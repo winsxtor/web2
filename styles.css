@@ -159,6 +159,18 @@ html, body {
   cursor: pointer;
 }
 
+/* Footer styles */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1em;
+    margin: 0;
+}
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
   .buttons {
