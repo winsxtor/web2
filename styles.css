@@ -159,17 +159,18 @@ html, body {
   cursor: pointer;
 }
 
-/* Footer styles */
 footer {
-    background-color: #1a1a1a;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
+  position: relative; /* O fixed si quieres que siempre esté abajo */
+  z-index: 10;        /* Para que esté por encima del video */
+  background: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para que sea legible */
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
 }
 
-footer p {
-    font-size: 1em;
-    margin: 0;
+.video-container {
+  z-index: -1; /* El video siempre al fondo */
 }
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
