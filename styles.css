@@ -159,16 +159,6 @@ html, body {
   cursor: pointer;
 }
 
-footer {
-  position: relative; /* O fixed si quieres que siempre esté abajo */
-  z-index: 10;        /* Para que esté por encima del video */
-  background: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para que sea legible */
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  width: 100%;
-
-}
 /* RESPONSIVE MÓVIL */
 @media (max-width: 768px) {
   .buttons {
