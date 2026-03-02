@@ -194,3 +194,54 @@ html, body {
     right: auto;
   }
 }
+/* Mejora de los paneles */
+.panel-content h2 {
+  color: #ff0050; /* Un color que resalte, como un neón */
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Grid para festivales y clubs */
+.tra-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+}
+
+.tra-column {
+  flex: 1;
+}
+
+.tra-column h3 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #aaa;
+}
+
+/* Estilo de las listas */
+.panel-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.panel-content ul li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.highlights li {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Responsive para celulares */
+@media (max-width: 600px) {
+  .tra-grid {
+    flex-direction: column;
+  }
+}
