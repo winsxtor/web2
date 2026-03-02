@@ -42,7 +42,7 @@ html, body {
 /* SOCIALS - ABAJO Y CENTRADO */
 .socials {
   position: absolute;
-  bottom: 30px;
+  bottom: 60px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
