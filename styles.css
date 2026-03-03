@@ -232,17 +232,13 @@ html, body {
 }
 
 .panel-content ul li {
+ /* Estilo de las listas - Aplicando Bricolage */
+.panel-content ul li {
+  font-family: 'Bricolage Grotesque', sans-serif; /* Agrega esta línea */
+  font-weight: 400;                               /* Agrega esta línea */
   margin-bottom: 8px;
   font-size: 0.95rem;
 }
-
-.highlights li {
-  background: rgba(40, 40, 40, 0.8);
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
 /* Responsive para celulares */
 @media (max-width: 600px) {
   .tra-grid {
