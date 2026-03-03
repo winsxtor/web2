@@ -1,11 +1,11 @@
-/* ================================
+/* =================================
    FONTS
-================================ */
+================================= */
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@600&f[]=bricolage-grotesque@400,800&display=swap');
 
-/* ================================
+/* =================================
    RESET
-================================ */
+================================= */
 * {
   margin: 0;
   padding: 0;
@@ -19,9 +19,14 @@ body {
   overflow-x: hidden;
 }
 
-/* ================================
+/* Scroll lock cuando panel está abierto */
+body.panel-open {
+  overflow: hidden;
+}
+
+/* =================================
    VIDEO
-================================ */
+================================= */
 .video-container {
   position: fixed;
   inset: 0;
@@ -34,9 +39,9 @@ body {
   object-fit: cover;
 }
 
-/* ================================
+/* =================================
    OVERLAY
-================================ */
+================================= */
 .overlay {
   position: fixed;
   inset: 0;
@@ -44,9 +49,9 @@ body {
   z-index: 10;
 }
 
-/* ================================
+/* =================================
    SOCIALS
-================================ */
+================================= */
 .socials {
   position: absolute;
   bottom: 100px;
@@ -78,9 +83,9 @@ body {
   transform: translateY(-3px);
 }
 
-/* ================================
+/* =================================
    BUTTONS
-================================ */
+================================= */
 .buttons {
   position: absolute;
   top: 35%;
@@ -113,27 +118,34 @@ body {
   color: #000;
 }
 
-/* ================================
-   PANELS
-================================ */
+/* =================================
+   PANELS (Nueva lógica sin display:none)
+================================= */
 .panel {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(0,0,0,0.85);
   backdrop-filter: blur(12px);
-  opacity: 0;
-  transition: opacity 0.4s ease;
   z-index: 1000;
+
+  /* Estado oculto */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
+/* Estado visible */
 .panel.show {
-  display: flex;
   opacity: 1;
+  pointer-events: auto;
 }
 
+/* =================================
+   PANEL CONTENT
+================================= */
 .panel-content {
   width: 90%;
   max-width: 700px;
@@ -141,14 +153,23 @@ body {
   border-radius: 10px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+
+  /* Animación sutil */
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+
+.panel.show .panel-content {
+  transform: translateY(0);
 }
 
 .panel-content h2 {
   font-family: 'General Sans', sans-serif;
   font-weight: 600;
   margin-bottom: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.3);
   padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
 .panel-content p,
@@ -156,6 +177,10 @@ body {
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 10px;
+}
+
+.panel-content ul {
+  list-style: none;
 }
 
 .close-button {
@@ -166,9 +191,9 @@ body {
   cursor: pointer;
 }
 
-/* ================================
+/* =================================
    TRA GRID
-================================ */
+================================= */
 .tra-grid {
   display: flex;
   gap: 30px;
@@ -185,13 +210,9 @@ body {
   margin-bottom: 10px;
 }
 
-.panel-content ul {
-  list-style: none;
-}
-
-/* ================================
+/* =================================
    BOOKING LINK
-================================ */
+================================= */
 .booking-mail {
   color: #fff;
   text-decoration: none;
@@ -202,9 +223,9 @@ body {
   opacity: 0.7;
 }
 
-/* ================================
+/* =================================
    FOOTER
-================================ */
+================================= */
 .site-footer {
   position: fixed;
   bottom: 0;
@@ -217,6 +238,7 @@ body {
   font-family: 'General Sans', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
+  z-index: 40;
 }
 
 .footer-links {
@@ -230,15 +252,16 @@ body {
 .footer-links a {
   color: #fff;
   text-decoration: none;
+  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
   opacity: 0.7;
 }
 
-/* ================================
+/* =================================
    RESPONSIVE
-================================ */
+================================= */
 @media (max-width: 768px) {
 
   .buttons {
@@ -253,7 +276,7 @@ body {
   }
 
   .socials {
-    bottom: 120px;
+    bottom: 130px;
   }
 
 }
