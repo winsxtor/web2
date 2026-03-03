@@ -293,7 +293,7 @@ html, body {
 }
 
 /* Ajuste para móviles: subimos un poco las redes sociales para que no se pisen con el footer */
-@media (max-width: 768px) {
+@media (max-width: 750px) {
     .socials {
         bottom: 100px; /* Subimos los iconos de redes */
     }
