@@ -1,6 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>WINS THE DEEJAAY | DJ & Urban World Music</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Wins The Deejaay – DJ y productor del Pacífico colombiano. Urban World Music, festivales, clubes y shows en vivo." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WINS THE DEEJAAY">
+  <meta property="og:description" content="DJ y productor del Pacífico colombiano. Urban World Music.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/preview.jpg">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+
+  <!-- VIDEO BACKGROUND -->
+  <div class="video-container">
+    <video autoplay muted loop playsinline preload="metadata">
+      <source src="assets/recap.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+  </div>
+
+  <div class="overlay">
+
+    <header class="top-section">
+
+      <!-- SOCIALS -->
+      <nav class="socials">
+        <a href="https://www.instagram.com/wins_thedeejaay/" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://soundcloud.com/wins_thedeejaay" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-soundcloud"></i>
+        </a>
+        <a href="https://www.tiktok.com/@winsthedeejaay" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+        <a href="https://www.facebook.com/winsthedeejaay" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+      </nav>
+
+      <!-- MAIN BUTTONS -->
+      <div class="buttons">
+        <button data-panel="bio">Quién soy</button>
+        <button data-panel="tra">Dónde he tocado</button>
+        <button data-panel="events">Próximos eventos</button>
+        <button data-panel="contact">Booking</button>
+      </div>
+
+    </header>
+
+    <!-- PANELS -->
+    <main>
+
+      <!-- BIO -->
+      <section class="panel" id="bio">
+        <div class="panel-content">
+          <span class="close-button">&times;</span>
+          <h2>SOY</h2>
+          <p>
+            Explorador sonoro desde 2012, mi ADN mezcla el Urban World Music con la profunda herencia del Pacífico colombiano. Esta visión única, sumada a mi rol como miembro de Punto Parlante y ganador a Mejor DJ Urbano, me ha llevado a comandar los shows en vivo de artistas de talla Grammy y Billboard como Dawer x Damper y Venesti.
+          </p>
+        </div>
+      </section>
+
+      <!-- TRAJECTORY -->
+      <section class="panel" id="tra">
+        <div class="panel-content">
+          <span class="close-button">&times;</span>
+          <h2>SE HAN HECHO VAINAS</h2>
+
+          <div class="tra-grid">
+
+            <div class="tra-column">
+              <h3>Festivales</h3>
+              <ul>
+                <li>Estéreo Picnic</li>
+                <li>La Solar</li>
+                <li>Afrovice</li>
+                <li>Selvaje</li>
+                <li>La Jungla By Hype</li>
+                <li>Baile Sagrado</li>
+              </ul>
+            </div>
+
+            <div class="tra-column">
+              <h3>Clubs & Venues</h3>
+              <p class="residency-info">8 años de residencia en La Pérgola Clandestina</p>
+              <ul>
+                <li>Def Jamaica</li>
+                <li>El Candelario</li>
+                <li>La Central</li>
+                <li>Don Invita</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- EVENTS -->
+      <section class="panel" id="events">
+        <div class="panel-content">
+          <span class="close-button">&times;</span>
+          <h2>LO QUE SE VIENE</h2>
+          <p>Próximamente estaré en Noche Prieta (Cali), El Pepino Bar (Bogotá) y Río Hostel.</p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="panel" id="contact">
+        <div class="panel-content">
+          <span class="close-button">&times;</span>
+          <h2>BOOKING</h2>
+          <p>
+            <a href="mailto:contacto@winsdj.com" class="booking-mail">
+              contacto@winsdj.com
+            </a>
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 WINS THE DEEJAAY. Todos los derechos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="privacidad.html">Política de Privacidad</a></li>
+        <li><a href="terminos.html">Términos de Servicio</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
