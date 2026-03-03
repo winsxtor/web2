@@ -1,71 +1,79 @@
 const buttons = document.querySelectorAll('.buttons button');
 const panels = document.querySelectorAll('.panel');
+const body = document.body;
 
-// 1. Función para cerrar todo
-const closeAll = () => {
-  buttons.forEach(b => b.classList.remove('active'));
-  panels.forEach(p => {
-    p.classList.remove('show');
-    setTimeout(() => {
-      if (!p.classList.contains('show')) {
-        p.style.display = 'none';
-      }
-    }, 300);
-  });
-};
+// ==============================
+// CERRAR TODO
+// ==============================
+function closeAllPanels() {
+  buttons.forEach(btn => btn.classList.remove('active'));
+  panels.forEach(panel => panel.classList.remove('show'));
+  body.classList.remove('panel-open');
+}
 
-// 2. Evento para los botones (Abrir)
-buttons.forEach(btn => {
-  // Usamos 'click' pero con un stopPropagation reforzado
-  btn.addEventListener('click', (e) => {
+// ==============================
+// ABRIR PANEL
+// ==============================
+function openPanel(targetId, button) {
+  const panel = document.getElementById(targetId);
+  if (!panel) return;
+
+  closeAllPanels();
+
+  panel.classList.add('show');
+  button.classList.add('active');
+  body.classList.add('panel-open');
+}
+
+// ==============================
+// EVENTOS BOTONES
+// ==============================
+buttons.forEach(button => {
+  button.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    
-    const targetId = btn.getAttribute('data-panel');
+
+    const targetId = button.dataset.panel;
     const targetPanel = document.getElementById(targetId);
 
     if (targetPanel.classList.contains('show')) {
-      closeAll();
+      closeAllPanels();
     } else {
-      closeAll();
-      targetPanel.style.display = 'flex';
-      btn.classList.add('active');
-      
-      setTimeout(() => {
-        targetPanel.classList.add('show');
-      }, 20);
+      openPanel(targetId, button);
     }
   });
 });
 
-// 3. Evento para CERRAR (Solo en la X y en el fondo negro)
+// ==============================
+// CERRAR POR FONDO O X
+// ==============================
 panels.forEach(panel => {
-  const panelContent = panel.querySelector('.panel-content');
+  const content = panel.querySelector('.panel-content');
   const closeBtn = panel.querySelector('.close-button');
 
-  // Cerramos si toca el fondo negro (el panel mismo)
+  // Cerrar si clic fondo
   panel.addEventListener('click', (e) => {
-    if (e.target === panel) {
-      closeAll();
-    }
+    if (e.target === panel) closeAllPanels();
   });
 
-  // Cerramos si toca la X
+  // Cerrar con X
   if (closeBtn) {
     closeBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
-      closeAll();
+      closeAllPanels();
     });
   }
 
-  // IMPORTANTE: Evitamos que clics dentro del texto cierren el panel
-  panelContent.addEventListener('click', (e) => {
+  // Evitar cierre al hacer clic dentro
+  content.addEventListener('click', (e) => {
     e.stopPropagation();
   });
 });
 
-// Cerrar con Escape
+// ==============================
+// CERRAR CON ESC
+// ==============================
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeAll();
+  if (e.key === 'Escape') closeAllPanels();
 });
