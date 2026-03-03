@@ -1,11 +1,11 @@
-/* =================================
+/* ================================
    FONTS
-================================= */
+================================ */
 @import url('https://api.fontshare.com/v2/css?f[]=general-sans@600&f[]=bricolage-grotesque@400,800&display=swap');
 
-/* =================================
+/* ================================
    RESET
-================================= */
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -19,14 +19,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Scroll lock cuando panel está abierto */
-body.panel-open {
-  overflow: hidden;
-}
-
-/* =================================
+/* ================================
    VIDEO
-================================= */
+================================ */
 .video-container {
   position: fixed;
   inset: 0;
@@ -39,9 +34,9 @@ body.panel-open {
   object-fit: cover;
 }
 
-/* =================================
+/* ================================
    OVERLAY
-================================= */
+================================ */
 .overlay {
   position: fixed;
   inset: 0;
@@ -49,9 +44,9 @@ body.panel-open {
   z-index: 10;
 }
 
-/* =================================
+/* ================================
    SOCIALS
-================================= */
+================================ */
 .socials {
   position: absolute;
   bottom: 100px;
@@ -83,9 +78,9 @@ body.panel-open {
   transform: translateY(-3px);
 }
 
-/* =================================
+/* ================================
    BUTTONS
-================================= */
+================================ */
 .buttons {
   position: absolute;
   top: 35%;
@@ -118,34 +113,27 @@ body.panel-open {
   color: #000;
 }
 
-/* =================================
-   PANELS (Nueva lógica sin display:none)
-================================= */
+/* ================================
+   PANELS
+================================ */
 .panel {
   position: fixed;
   inset: 0;
-  display: flex;
+  background: rgba(0,0,0,0.85);
+  display: none;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,0.85);
   backdrop-filter: blur(12px);
-  z-index: 1000;
-
-  /* Estado oculto */
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.4s ease;
+  z-index: 1000;
 }
 
-/* Estado visible */
 .panel.show {
+  display: flex;
   opacity: 1;
-  pointer-events: auto;
 }
 
-/* =================================
-   PANEL CONTENT
-================================= */
 .panel-content {
   width: 90%;
   max-width: 700px;
@@ -153,23 +141,14 @@ body.panel-open {
   border-radius: 10px;
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-
-  /* Animación sutil */
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
-}
-
-.panel.show .panel-content {
-  transform: translateY(0);
 }
 
 .panel-content h2 {
   font-family: 'General Sans', sans-serif;
   font-weight: 600;
   margin-bottom: 20px;
-  padding-bottom: 10px;
   border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding-bottom: 10px;
 }
 
 .panel-content p,
@@ -177,10 +156,6 @@ body.panel-open {
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 10px;
-}
-
-.panel-content ul {
-  list-style: none;
 }
 
 .close-button {
@@ -191,9 +166,9 @@ body.panel-open {
   cursor: pointer;
 }
 
-/* =================================
+/* ================================
    TRA GRID
-================================= */
+================================ */
 .tra-grid {
   display: flex;
   gap: 30px;
@@ -210,9 +185,13 @@ body.panel-open {
   margin-bottom: 10px;
 }
 
-/* =================================
+.panel-content ul {
+  list-style: none;
+}
+
+/* ================================
    BOOKING LINK
-================================= */
+================================ */
 .booking-mail {
   color: #fff;
   text-decoration: none;
@@ -223,9 +202,9 @@ body.panel-open {
   opacity: 0.7;
 }
 
-/* =================================
+/* ================================
    FOOTER
-================================= */
+================================ */
 .site-footer {
   position: fixed;
   bottom: 0;
@@ -238,7 +217,6 @@ body.panel-open {
   font-family: 'General Sans', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
-  z-index: 40;
 }
 
 .footer-links {
@@ -252,16 +230,15 @@ body.panel-open {
 .footer-links a {
   color: #fff;
   text-decoration: none;
-  transition: opacity 0.3s ease;
 }
 
 .footer-links a:hover {
   opacity: 0.7;
 }
 
-/* =================================
+/* ================================
    RESPONSIVE
-================================= */
+================================ */
 @media (max-width: 768px) {
 
   .buttons {
@@ -276,307 +253,7 @@ body.panel-open {
   }
 
   .socials {
-    bottom: 130px;
+    bottom: 120px;
   }
 
-}/* IMPORTACIÓN DE FUENTES */
-@import url('https://api.fontshare.com/v2/css?f[]=general-sans@600&f[]=bricolage-grotesque@400,800&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  width: 100%;
-  height: 100%;
-  background: #000;
-  overflow: hidden;
-  /* Fuente para párrafos y base del sitio */
-  font-family: 'Gambetta', serif;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* VIDEO */
-.video-container {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-}
-
-.video-container video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* OVERLAY */
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  background: rgba(0,0,0,0.3);
-}
-
-/* SOCIALS - ABAJO Y CENTRADO */
-.socials {
-  position: absolute;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 15px;
-  z-index: 30;
-}
-
-.socials a {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.5);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: #fff;
-  text-decoration: none;
-  backdrop-filter: blur(5px);
-  -webkit-tap-highlight-color: transparent;
-  transition: all 0.3s ease;
-}
-
-.socials a:hover {
-  background: #fff;
-  color: #000;
-  transform: translateY(-3px);
-}
-
-/* BUTTONS - ESCRITORIO */
-.buttons {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: auto;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  z-index: 20;
-}
-
-.buttons button {
-  /* Títulos en botones: General Sans Semibold */
-  font-family: 'General Sans', sans-serif;
-  font-weight: 600;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  padding: 12px 24px;
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 50px;
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  transition: all 0.3s ease;
-}
-
-.buttons button:hover, .buttons button.active {
-  background: #fff;
-  color: #000;
-}
-
-/* PANELS */
-.panel {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.panel.show {
-  opacity: 1;
-}
-
-.panel-content {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 700px;
-  width: 90%;
-  padding: 40px;
-  position: relative;
-  border-radius: 8px;
-}
-
-/* TÍTULOS DE PANELES - General Sans Semibold */
-.panel-content h2 {
-  font-family: 'General Sans', sans-serif;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-/* PÁRRAFOS DE PANELES - Gambetta Medium */
-.panel-content p {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-weight: 400; /* Estilo Regular */
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #FFFFFF;
-  letter-spacing: -0.01em; /* Ajuste moderno para fuentes Grotesque */
-  margin-bottom: 15px;;
-}
-
-.close-button {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* RESPONSIVE MÓVIL */
-@media (max-width: 768px) {
-  .buttons {
-    top: auto;
-    bottom: 60vh;
-    left: 0;
-    transform: none;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 0 20px;
-    justify-items: center;
-  }
-  
-  .buttons button {
-    width: 100%;
-    max-width: 170px;
-    height: 80px;
-    font-size: 10px;
-    padding: 10px;
-    white-space: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  /* Socials en móvil (se mantienen centrados abajo) */
-  .socials {
-    bottom: 40px; 
-    top: auto; 
-    right: auto;
-  }
-}
-/* Mejora de los paneles */
-.panel-content h2 {
-  color: #FFFFFF; /* Un color que resalte, como un neón */
-  border-bottom: 2px solid #000000;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-}
-
-/* Grid para festivales y clubs */
-.tra-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  text-align: left;
-}
-
-.tra-column {
-  flex: 1;
-}
-
-.tra-column h3 {
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  color: #aaa;
-}
-
-/* Estilo de las listas */
-.panel-content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.panel-content ul li {
- /* Estilo de las listas - Aplicando Bricolage */
-.panel-content ul li {
-  font-family: 'Bricolage Grotesque', sans-serif; /* Agrega esta línea */
-  font-weight: 400;                               /* Agrega esta línea */
-  margin-bottom: 8px;
-  font-size: 0.95rem;
-}
-/* Responsive para celulares */
-@media (max-width: 600px) {
-  .tra-grid {
-    flex-direction: column;
-  }
-}
-/* FOOTER TRASLÚCIDO */
-.site-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 40; /* Por encima del overlay y sociales */
-    padding: 15px 0;
-    background: rgba(255, 255, 255, 0.05); /* Igual que los botones */
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: 'General Sans', sans-serif; /* Consistente con los botones */
-    font-size: 10px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.footer-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    padding: 0;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.footer-links a:hover {
-    opacity: 0.7;
-}
-
-/* Ajuste para móviles: subimos un poco las redes sociales para que no se pisen con el footer */
-@media (max-width: 750px) {
-    .socials {
-        bottom: 100px; /* Subimos los iconos de redes */
-    }
-    
-    .site-footer {
-        padding: 20px 10px;
-        font-size: 8px;
-    }
 }
